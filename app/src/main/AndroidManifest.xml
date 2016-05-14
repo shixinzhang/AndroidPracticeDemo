@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.sxkeji.androiddevartiestpritice">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.IPCActivity" />
+
+        <activity
+            android:name=".StartActivity"
+            android:process=":zsx">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.TouchEventActivity" />
+
+        <activity android:name=".activity.ListViewLoadDataActivity" />
+
+        <activity android:name=".activity.RecyclerViewLoadDataActivity" />
+
+        <activity android:name=".activity.VerticalSelectTabActivity" />
+
+        <activity android:name=".activity.RemoteViewActivity" />
+
+        <activity android:name=".activity.TimePickerParseActivity" />
+
+        <activity android:name=".activity.WidgetCircleViewActivity" />
+
+        <activity android:name=".activity.VideoPlayerActivity" />
+
+        <activity android:name=".activity.LockScreenActivity"
+            android:process=":lock_screen"/>
+
+        <activity android:name=".activity.ScreenRotationActivity"
+            android:configChanges="keyboard|screenSize|orientation"/>
+
+        <activity android:name=".activity.GankListActivity"/>
+
+        <activity
+            android:name=".activity.StartLockScreenActivity"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".service.BookManagerService"
+            android:process=":remote" />
+
+        <service android:name=".service.LockScreenService" />
+
+        <receiver android:name=".widget.MyAppWidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_info" />
+
+            <intent-filter>
+                <action android:name="net.sxkeji.androiddevartiestpritice.action.CLICK" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

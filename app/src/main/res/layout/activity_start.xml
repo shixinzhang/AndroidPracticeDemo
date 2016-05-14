@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_ipc"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="多进程通信" />
+
+        <Button
+            android:id="@+id/btn_listview_load_data"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="ListView 分页加载数据" />
+
+        <Button
+            android:id="@+id/btn_recycler_load_data"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="RecyclerView 分页加载数据" />
+
+        <Button
+            android:id="@+id/btn_vertical_select"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="竖直tab 选择器" />
+
+        <Button
+            android:id="@+id/btn_remote_views"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="RemoteViews 学习" />
+
+        <Button
+            android:id="@+id/btn_parse_timepicker"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="TimePicker 源码解析" />
+
+        <Button
+            android:id="@+id/btn_widget_circle_view"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="自定义圆形进度View" />
+
+        <Button
+            android:id="@+id/btn_video_play"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="播放视频" />
+
+        <Button
+            android:id="@+id/btn_start_lock"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="自定义锁屏" />
+
+        <Button
+            android:id="@+id/btn_generate_doc"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="生成word文件" />
+
+        <Button
+            android:id="@+id/btn_gank_list"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="干货列表" />
+        <Button
+            android:id="@+id/btn_screen_rotation"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="监听屏幕旋转方向" />
+
+    </LinearLayout>
+</ScrollView>

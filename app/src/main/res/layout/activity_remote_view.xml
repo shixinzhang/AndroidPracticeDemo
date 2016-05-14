@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".RemoteViewActivity">
+
+    <Button
+        android:id="@+id/btn_notification_default"
+        android:layout_width="@dimen/start_btn_width"
+        android:layout_height="@dimen/start_btn_height"
+        android:background="@drawable/bg_btn"
+        android:layout_marginTop="16dp"
+        android:text="系统默认通知栏消息" />
+    <Button
+        android:id="@+id/btn_notification_diy"
+        android:layout_width="@dimen/start_btn_width"
+        android:layout_height="@dimen/start_btn_height"
+        android:background="@drawable/bg_btn"
+        android:layout_marginTop="16dp"
+        android:text="自定义通知栏消息" />
+    <Button
+        android:id="@+id/btn_simulate_notification"
+        android:layout_width="@dimen/start_btn_width"
+        android:layout_height="@dimen/start_btn_height"
+        android:background="@drawable/bg_btn"
+        android:layout_marginTop="16dp"
+        android:text="发送模拟通知栏消息" />
+</LinearLayout>
