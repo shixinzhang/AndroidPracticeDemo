@@ -16,6 +16,17 @@ public abstract class BaseQuickAdapter<T> extends RecyclerView.Adapter<BaseViewH
     private Context mContext;
     private List<T> mData;
     private int mLayoutId;
+    private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
+
+    public void remove(int position) {
+        mData.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void add(int position, T item) {
+        mData.add(position, item);
+        notifyItemInserted(position);
+    }
 
     public BaseQuickAdapter(Context context, List<T> data, int layoutId) {
         mContext = context;
@@ -30,8 +41,16 @@ public abstract class BaseQuickAdapter<T> extends RecyclerView.Adapter<BaseViewH
     }
 
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, final int position) {
         convert(holder, mData.get(position));
+        if (onRecyclerViewItemClickListener != null) {
+            holder.getView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onRecyclerViewItemClickListener.onItemClick(v, position);
+                }
+            });
+        }
     }
 
     @Override
@@ -40,4 +59,12 @@ public abstract class BaseQuickAdapter<T> extends RecyclerView.Adapter<BaseViewH
     }
 
     protected abstract void convert(BaseViewHolder holder, T item);
+
+    public void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
+        this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
+    }
+
+    public interface OnRecyclerViewItemClickListener {
+        public void onItemClick(View view, int position);
+    }
 }

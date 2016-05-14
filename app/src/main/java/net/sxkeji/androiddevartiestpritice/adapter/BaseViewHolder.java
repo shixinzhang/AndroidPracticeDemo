@@ -26,6 +26,10 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         convertView = view;
     }
 
+    public View getView(){
+        return convertView;
+    }
+
     protected <T extends View> T retrieveView(int viewId) {
         View view = views.get(viewId);
         if (view == null) {
