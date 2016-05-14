@@ -153,7 +153,7 @@ public class StartActivity extends Activity {
         btnGenerateDoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JWordUtils.create("/sdcard/365_diary/zsxword2.docx");
+                JWordUtils.create(StartActivity.this, "/sdcard/365_diary/zsxword2.docx");
             }
         });
 

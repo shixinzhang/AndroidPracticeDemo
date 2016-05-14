@@ -1,5 +1,6 @@
 package net.sxkeji.androiddevartiestpritice.widget;
 
+import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ import java.io.IOException;
 public class JWordUtils {
     private static final String TAG = "JWordUtils";
 
-    public static void create(String filePath) {
+    public static void create(Context context, String filePath) {
         WordDocument doc = new WordDocument();
         Run run = new Run();
         run.addText("Hello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsxHello world zsx");
@@ -33,6 +34,7 @@ public class JWordUtils {
         try {
             doc.save(filePath, true);
             Log.e(TAG, "create doc success " + filePath);
+            Toast.makeText(context,"word生成成功，路径:" + filePath,Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Log.e(TAG, "create doc failed " + e.getMessage());
             e.printStackTrace();
