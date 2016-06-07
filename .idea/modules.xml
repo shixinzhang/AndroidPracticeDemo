@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidDevArtiestPritice.iml" filepath="$PROJECT_DIR$/AndroidDevArtiestPritice.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/davincilib/davincilib.iml" filepath="$PROJECT_DIR$/davincilib/davincilib.iml" />
     </modules>
   </component>
 </project>
