@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 
 import net.sxkeji.davincilib.lib.DiskLruCache;
 
@@ -23,17 +24,18 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * 硬盘缓存
- *
+ * <p>
  * How to use?
  * 1.invoke saveBitmap2Disk(ImageURL) to save bitmap to disk
  * 2.then, save the URLs to SharedPreferences or file
  * 3.next time your app start, invoke getBitmapFromDisk(URL) to load bitmap
  * 4.if the return of getBitmapFromDisk is null, it's means that your disk cache had been clear,
- *      you need to recycle to the first step ↑
- *
+ * you need to recycle to the first step ↑
+ * <p>
  * Created by zhangshixin on 6/7/2016.
  */
 public class DiskLruCacheUtils {
+    private static final String TAG = "DiskLruCacheUtils";
     private static final long DISK_CACHE_SIZE = 1024 * 1024 * 50; //50M
     private static final int DISK_CACHE_INDEX = 0;  //默认DiskLruCache的一个节点只有一个数据，所以索引为0
     private static final int IO_BUFFER_SIZE = 8 * 1024;     //IO缓存流大小
@@ -50,11 +52,15 @@ public class DiskLruCacheUtils {
             instance = new DiskLruCacheUtils();
             setImageResizer(new ImageResizer());
 
-            File diskCacheDir = getDiskCacheDir(context, "sxkeji");
+            File diskCacheDir = FileUtils.getDiskCacheDir(context, "sxkeji");
             if (!diskCacheDir.exists()) {
                 diskCacheDir.mkdirs();
             }
-            setDiskLruCache(DiskLruCache.open(diskCacheDir, 1, 1, DISK_CACHE_SIZE));
+            if (FileUtils.getUsableSpace(diskCacheDir) > DISK_CACHE_SIZE) {
+                setDiskLruCache(DiskLruCache.open(diskCacheDir, 1, 1, DISK_CACHE_SIZE));
+            } else {
+                Log.w(TAG, "There doesn't have enough disk capacity ! ");
+            }
         }
         return instance;
     }
@@ -65,7 +71,7 @@ public class DiskLruCacheUtils {
      * @param url
      * @return
      */
-    public Bitmap saveBitmap2Disk(String url) {
+    public Bitmap saveBitmap2Disk(String url, int reqWidth, int reqHeight) {
         if (TextUtils.isEmpty(url)) {
             return null;
         }
@@ -75,6 +81,7 @@ public class DiskLruCacheUtils {
             DiskLruCache.Editor editor = getDiskLruCache().edit(key);
             if (editor != null) {
                 OutputStream outputStream = editor.newOutputStream(DISK_CACHE_INDEX);
+                //下载
                 if (downloadUrl2Stream(url, outputStream)) {
                     //提交写入操作，释放锁
                     editor.commit();
@@ -86,7 +93,7 @@ public class DiskLruCacheUtils {
                 outputStream.close();
                 getDiskLruCache().flush();
 
-                return getBitmapFromDisk(url);
+                return getBitmapFromDisk(url, reqWidth, reqHeight);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -101,7 +108,7 @@ public class DiskLruCacheUtils {
      * @param url
      * @return
      */
-    public Bitmap getBitmapFromDisk(String url) {
+    public Bitmap getBitmapFromDisk(String url, int reqWidth, int reqHeight) {
         if (TextUtils.isEmpty(url) || getDiskLruCache() == null) {
             return null;
         }
@@ -116,10 +123,10 @@ public class DiskLruCacheUtils {
                 FileInputStream fileInputStream = (FileInputStream) snapshot.getInputStream(IO_BUFFER_SIZE);
                 //压缩图片会影响FileInputStream的序列，通过文件描述符来操作不会影响
                 FileDescriptor fileDescriptor = fileInputStream.getFD();
-//                getImageResizer().decodeBitmapFromFileDescriptor(fileDescriptor, )
+                //压缩图片
+                bitmap = getImageResizer().decodeBitmapFromFileDescriptor(fileDescriptor, reqWidth, reqHeight);
 
-                // TODO: 6/8/2016 目前先不压缩，因为压缩比例不确定
-                bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+//                bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -215,25 +222,6 @@ public class DiskLruCacheUtils {
         return sb.toString();
     }
 
-    /**
-     * 获取文件目录
-     *
-     * @param context  上下文对象
-     * @param filePath 文件路径
-     * @return 返回一个文件
-     */
-    public static File getDiskCacheDir(Context context, String filePath) {
-        boolean externalStorageAvailable = Environment
-                .getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
-        final String cachePath;
-        if (externalStorageAvailable) {
-            cachePath = context.getExternalCacheDir().getPath();
-        } else {
-            cachePath = context.getCacheDir().getPath();
-        }
-
-        return new File(cachePath + File.separator + filePath);
-    }
 
     public static ImageResizer getImageResizer() {
         return imageResizer;

@@ -50,7 +50,7 @@ public class LruCacheUtils {
      * @param key
      * @return
      */
-    public static Bitmap get(String key){
+    public Bitmap get(String key){
         if (TextUtils.isEmpty(key)){
             return null;
         }
@@ -62,7 +62,7 @@ public class LruCacheUtils {
      * 添加元素到缓存
      * @return
      */
-    public static void put(String key,Bitmap value){
+    public void put(String key,Bitmap value){
         if (TextUtils.isEmpty(key)){
             return ;
         }
