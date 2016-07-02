@@ -52,6 +52,14 @@
             android:text="RemoteViews 学习" />
 
         <Button
+            android:id="@+id/btn_scroller_learning"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="Scroller 学习" />
+
+        <Button
             android:id="@+id/btn_parse_timepicker"
             android:layout_width="@dimen/start_btn_width"
             android:layout_height="@dimen/start_btn_height"
@@ -98,6 +106,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_btn"
             android:text="Retrofit2加载干货列表" />
+
         <Button
             android:id="@+id/btn_screen_rotation"
             android:layout_width="@dimen/start_btn_width"
