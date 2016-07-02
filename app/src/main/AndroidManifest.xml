@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -41,19 +41,23 @@
 
         <activity android:name=".activity.VideoPlayerActivity" />
 
-        <activity android:name=".activity.LockScreenActivity"
-            android:process=":lock_screen"/>
+        <activity android:name=".activity.ScrollerLearningActivity" />
+        <activity
+            android:name=".activity.LockScreenActivity"
+            android:process=":lock_screen" />
 
-        <activity android:name=".activity.ScreenRotationActivity"
-            android:configChanges="keyboard|screenSize|orientation"/>
+        <activity
+            android:name=".activity.ScreenRotationActivity"
+            android:configChanges="keyboard|screenSize|orientation" />
 
-        <activity android:name=".activity.GankListActivity"/>
+        <activity android:name=".activity.GankListActivity" />
 
         <activity
             android:name=".activity.StartLockScreenActivity"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

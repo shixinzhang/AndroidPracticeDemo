@@ -17,6 +17,7 @@ import net.sxkeji.androiddevartiestpritice.activity.ListViewLoadDataActivity;
 import net.sxkeji.androiddevartiestpritice.activity.RecyclerViewLoadDataActivity;
 import net.sxkeji.androiddevartiestpritice.activity.RemoteViewActivity;
 import net.sxkeji.androiddevartiestpritice.activity.ScreenRotationActivity;
+import net.sxkeji.androiddevartiestpritice.activity.ScrollerLearningActivity;
 import net.sxkeji.androiddevartiestpritice.activity.StartLockScreenActivity;
 import net.sxkeji.androiddevartiestpritice.activity.TimePickerParseActivity;
 import net.sxkeji.androiddevartiestpritice.activity.VerticalSelectTabActivity;
@@ -50,6 +51,8 @@ public class StartActivity extends Activity {
     Button btnGankList;
     @Bind(R.id.btn_screen_rotation)
     Button btnScreenRotation;
+    @Bind(R.id.btn_scroller_learning)
+    Button btnScrollerLearning;
     private Button btn_ipc;
     private Button btn_listview_load_data;
     private Button btn_vertical_select;
@@ -167,6 +170,12 @@ public class StartActivity extends Activity {
             @Override
             public void onClick(View v) {
                 jump2Activity(ScreenRotationActivity.class);
+            }
+        });
+        btnScrollerLearning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump2Activity(ScrollerLearningActivity.class);
             }
         });
     }
