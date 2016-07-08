@@ -120,6 +120,7 @@ public class ScrollerTestView extends ViewGroup {
             case MotionEvent.ACTION_MOVE:
                 //根据之前的pointerId获取对应的移动轨迹
                 int pointerIndex = event.findPointerIndex(pointerId);
+
                 float x2 = event.getX(pointerIndex);
                 Log.d(TAG, "onTouchEvent pointerId " + pointerId + "/ pointerIndex " + pointerIndex + " / x2 " + x2 + " / oldX " + oldX);
                 int offset = (int) (oldX - x2);
