@@ -115,5 +115,12 @@
             android:background="@drawable/bg_btn"
             android:text="监听屏幕旋转方向" />
 
+        <Button
+            android:id="@+id/btn_eventbus"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="EventBus 学习 " />
     </LinearLayout>
 </ScrollView>

@@ -31,4 +31,5 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.0'
     compile files('libs/freemarker.jar')
     compile files('libs/jword-1.0.jar')
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

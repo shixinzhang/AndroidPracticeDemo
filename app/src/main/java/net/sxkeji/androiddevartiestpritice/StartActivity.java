@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
+import net.sxkeji.androiddevartiestpritice.activity.eventbus.EventBusActivity;
 import net.sxkeji.androiddevartiestpritice.activity.GankListActivity;
 import net.sxkeji.androiddevartiestpritice.activity.IPCActivity;
 import net.sxkeji.androiddevartiestpritice.activity.ListViewLoadDataActivity;
@@ -53,6 +54,8 @@ public class StartActivity extends Activity {
     Button btnScreenRotation;
     @Bind(R.id.btn_scroller_learning)
     Button btnScrollerLearning;
+    @Bind(R.id.btn_eventbus)
+    Button btnEventBus;
     private Button btn_ipc;
     private Button btn_listview_load_data;
     private Button btn_vertical_select;
@@ -176,6 +179,12 @@ public class StartActivity extends Activity {
             @Override
             public void onClick(View v) {
                 jump2Activity(ScrollerLearningActivity.class);
+            }
+        });
+        btnEventBus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump2Activity(EventBusActivity.class);
             }
         });
     }
