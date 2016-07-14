@@ -122,5 +122,19 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_btn"
             android:text="EventBus 学习 " />
+        <Button
+            android:id="@+id/btn_drawer_sort_list"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="侧边栏和抽屉组合" />
+        <Button
+            android:id="@+id/btn_animation_splash"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="熟悉加速器 Interpolator" />
     </LinearLayout>
 </ScrollView>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="32dp">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@style/MyProgressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:indeterminateDuration="800" />
+
+        <ImageView
+            android:id="@+id/iv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_loading" />
+
+        <net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.InterpolatorTestView
+            android:id="@+id/interpolator_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.InterpolatorTestView
+            android:id="@+id/interpolator_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.InterpolatorTestView
+            android:id="@+id/interpolator_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.InterpolatorTestView
+            android:id="@+id/interpolator_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.InterpolatorTestView
+            android:id="@+id/interpolator_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.InterpolatorTestView
+            android:id="@+id/interpolator_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.InterpolatorTestView
+            android:id="@+id/interpolator_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.InterpolatorTestView
+            android:id="@+id/interpolator_8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.InterpolatorTestView
+            android:id="@+id/interpolator_9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>
