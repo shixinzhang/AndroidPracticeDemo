@@ -55,6 +55,10 @@
 
         <activity android:name=".activity.eventbus.EventBusActivity"/>
 
+        <activity android:name=".activity.sidebarlist.SideBarListActivity"/>
+
+        <activity android:name=".activity.learnInterpolator.AnimationSplashActivity"/>
+
         <activity
             android:name=".activity.StartLockScreenActivity"
             android:theme="@android:style/Theme.NoDisplay">

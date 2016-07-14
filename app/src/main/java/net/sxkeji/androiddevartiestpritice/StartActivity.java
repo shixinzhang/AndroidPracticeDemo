@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
-import net.sxkeji.androiddevartiestpritice.activity.eventbus.EventBusActivity;
 import net.sxkeji.androiddevartiestpritice.activity.GankListActivity;
 import net.sxkeji.androiddevartiestpritice.activity.IPCActivity;
 import net.sxkeji.androiddevartiestpritice.activity.ListViewLoadDataActivity;
@@ -24,6 +23,9 @@ import net.sxkeji.androiddevartiestpritice.activity.TimePickerParseActivity;
 import net.sxkeji.androiddevartiestpritice.activity.VerticalSelectTabActivity;
 import net.sxkeji.androiddevartiestpritice.activity.VideoPlayerActivity;
 import net.sxkeji.androiddevartiestpritice.activity.WidgetCircleViewActivity;
+import net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.AnimationSplashActivity;
+import net.sxkeji.androiddevartiestpritice.activity.eventbus.EventBusActivity;
+import net.sxkeji.androiddevartiestpritice.activity.sidebarlist.SideBarListActivity;
 import net.sxkeji.androiddevartiestpritice.widget.JWordUtils;
 
 import butterknife.Bind;
@@ -56,6 +58,11 @@ public class StartActivity extends Activity {
     Button btnScrollerLearning;
     @Bind(R.id.btn_eventbus)
     Button btnEventBus;
+    @Bind(R.id.btn_drawer_sort_list)
+    Button btnDrawerSortList;
+    @Bind(R.id.btn_animation_splash)
+    Button btnAnimationSplash;
+
     private Button btn_ipc;
     private Button btn_listview_load_data;
     private Button btn_vertical_select;
@@ -187,6 +194,19 @@ public class StartActivity extends Activity {
                 jump2Activity(EventBusActivity.class);
             }
         });
+        btnDrawerSortList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump2Activity(SideBarListActivity.class);
+            }
+        });
+        btnAnimationSplash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump2Activity(AnimationSplashActivity.class);
+            }
+        });
+
     }
 
     private void jump2Activity(Class<?> aClass) {
