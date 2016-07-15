@@ -41,19 +41,19 @@ public class InterpolatorTestView extends LinearLayout {
         imageView = (ImageView) view.findViewById(R.id.iv_img);
         addView(view);
     }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int measureWidth = measureWidth(widthMeasureSpec);
-        int measureHeight = measureHeight(heightMeasureSpec);
-        System.out.println("measureWidth :" + measureWidth);
-        System.out.println("measureHeight :" + measureHeight);
-        // 计算自定义的ViewGroup中所有子控件的大小
-        measureChildren(widthMeasureSpec, heightMeasureSpec);
-        // 设置自定义的控件MyViewGroup的大小
-        setMeasuredDimension(measureWidth, measureHeight);
-    }
+// TODO: 7/14/2016 自定义控件长度为 match_parent 时不起作用？？
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+////        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        int measureWidth = measureWidth(widthMeasureSpec);
+//        int measureHeight = measureHeight(heightMeasureSpec);
+//        System.out.println("measureWidth :" + measureWidth);
+//        System.out.println("measureHeight :" + measureHeight);
+//        // 计算自定义的ViewGroup中所有子控件的大小
+//        measureChildren(widthMeasureSpec, heightMeasureSpec);
+//        // 设置自定义的控件MyViewGroup的大小
+//        setMeasuredDimension(measureWidth, measureHeight);
+//    }
 
     private int measureWidth(int widthMeasureSpec) {
         int result = 0;

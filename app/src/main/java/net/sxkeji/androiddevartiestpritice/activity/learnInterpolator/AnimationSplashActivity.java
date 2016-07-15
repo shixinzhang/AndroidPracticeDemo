@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 
 import net.sxkeji.androiddevartiestpritice.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,6 +75,7 @@ public class AnimationSplashActivity extends Activity {
         startAnim(interpolator7, 7);
         startAnim(interpolator8, 8);
         startAnim(interpolator9, 9);
+
 
     }
 
