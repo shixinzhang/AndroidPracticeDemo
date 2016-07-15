@@ -15,3 +15,16 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keep public class net.sxkeji.androiddevartiestpritice.R$*{
+    public static final int *;
+}
+
+-keepclassmembers class * {
+   public <init>(org.json.JSONObject);
+}
+
+-dontwarn
+
+-keepattributes Signature
+
+-keepattributes InnerClasses

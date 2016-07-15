@@ -10,21 +10,83 @@ android {
         versionCode 1
         versionName "1.0"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+    lintOptions{
+        abortOnError false
+    }
+
+    signingConfigs {
+        debugKey {
+//            keyAlias 'debugAlias'
+            //不能变
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('debug.keystore')
+            storePassword 'android'
+        }
+        releaseKey {
+            //自己生成一个
+            keyAlias 'shixinzhangAlias'
+            keyPassword 'shixinzhang'
+            storeFile file('zsxTestKeyStore.jks')
+            storePassword 'shixinzhang'
         }
     }
+
+    buildTypes {
+        release {
+            //混淆、清除
+            minifyEnabled false
+            //版本后缀
+            versionNameSuffix "_release"
+            //Zip优化
+            zipAlignEnabled true
+            //删除无用资源
+            shrinkResources true
+            //签名配置文件
+            signingConfig signingConfigs.releaseKey
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+            minifyEnabled false
+            versionNameSuffix "_debug"
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debugKey
+        }
+    }
+
     productFlavors {
+        huawei {}
+        tencent {}
+        wandoujia {}
+    }
+
+    //使用渠道名打包apk
+    android.applicationVariants.all {
+        variant ->
+            def flavorName = "_${variant.productFlavors[0].name}"
+
+            variant.outputs.each {
+                output ->
+                    flavorName += variant.buildType.versionNameSuffix
+                    def fileName = "testAPK_V" + android.defaultConfig.versionName + flavorName
+//                    fileName += variant.buildType.minifyEnable ? "_proguard" :
+//                            !variant.buildType.zipAlignEnabled ? "_unalign" : ""
+                    fileName += ".apk"
+
+                    //生成apk名称为: testAPK_V1.0_huawei_release_proguard.apk
+                    output.outputFile = new File(output.outputFile.parent, fileName)
+            }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.0'
-    compile 'com.android.support:recyclerview-v7:23.2.0'
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:recyclerview-v7:23.3.0'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'fm.jiecao:jiecaovideoplayer:3.0_preview'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
