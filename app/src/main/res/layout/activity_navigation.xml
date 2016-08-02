@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/navigation_height"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="40dp">
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent" 
+        android:layout_height="@dimen/navigation_height"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"/>
+
+        <RadioButton
+            android:id="@+id/tab_home"
+            style="@style/BottomTabBtn"
+            android:drawableTop="@drawable/selector_tab_home"
+            android:text="首页"/>
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/tab_buycar"-->
+            <!--style="@style/BottomTabBtn"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:drawableTop="@drawable/selector_tab_buycar"-->
+            <!--android:text="买车"/>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/tab_buycar_redpoint"-->
+            <!--style="@style/BottomTabRedPoint"-->
+            <!--android:visibility="invisible"/>-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/tab_plan"-->
+            <!--style="@style/BottomTabBtn"-->
+            <!--android:drawableTop="@drawable/selector_tab_plan"-->
+            <!--android:text="购车方案"/>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/tab_plan_redpoint"-->
+            <!--style="@style/BottomTabRedPoint"-->
+            <!--android:visibility="invisible"/>-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/tab_order"-->
+            <!--style="@style/BottomTabBtn"-->
+            <!--android:drawableTop="@drawable/selector_tab_order"-->
+            <!--android:text="订单"/>-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/tab_my"-->
+            <!--style="@style/BottomTabBtn"-->
+            <!--android:drawableTop="@drawable/selector_tab_my"-->
+            <!--android:text="我的"/>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/tab_my_redpoint"-->
+            <!--style="@style/BottomTabRedPoint"-->
+            <!--android:visibility="invisible"/>-->
+
+    <!--</RadioGroup>-->
+
+    <!--<View-->
+        <!--style="@style/divHorizontal"-->
+        <!--android:background="#e1e1e1"-->
+        <!--android:layout_above="@id/radio_group"/>-->
+</RelativeLayout>

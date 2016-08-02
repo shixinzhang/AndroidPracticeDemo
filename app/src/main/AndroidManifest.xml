@@ -53,11 +53,13 @@
 
         <activity android:name=".activity.GankListActivity" />
 
-        <activity android:name=".activity.eventbus.EventBusActivity"/>
+        <activity android:name=".activity.eventbus.EventBusActivity" />
 
-        <activity android:name=".activity.sidebarlist.SideBarListActivity"/>
+        <activity android:name=".activity.sidebarlist.SideBarListActivity" />
 
-        <activity android:name=".activity.learnInterpolator.AnimationSplashActivity"/>
+        <activity android:name=".activity.learnInterpolator.AnimationSplashActivity" />
+
+        <activity android:name=".activity.ReactNativeActivity"/>
 
         <activity
             android:name=".activity.StartLockScreenActivity"
@@ -86,6 +88,11 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
         </receiver>
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+
     </application>
 
 </manifest>

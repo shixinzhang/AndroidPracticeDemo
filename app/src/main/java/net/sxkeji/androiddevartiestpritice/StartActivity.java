@@ -14,6 +14,7 @@ import android.widget.RemoteViews;
 import net.sxkeji.androiddevartiestpritice.activity.GankListActivity;
 import net.sxkeji.androiddevartiestpritice.activity.IPCActivity;
 import net.sxkeji.androiddevartiestpritice.activity.ListViewLoadDataActivity;
+import net.sxkeji.androiddevartiestpritice.activity.ReactNativeActivity;
 import net.sxkeji.androiddevartiestpritice.activity.RecyclerViewLoadDataActivity;
 import net.sxkeji.androiddevartiestpritice.activity.RemoteViewActivity;
 import net.sxkeji.androiddevartiestpritice.activity.ScreenRotationActivity;
@@ -23,8 +24,8 @@ import net.sxkeji.androiddevartiestpritice.activity.TimePickerParseActivity;
 import net.sxkeji.androiddevartiestpritice.activity.VerticalSelectTabActivity;
 import net.sxkeji.androiddevartiestpritice.activity.VideoPlayerActivity;
 import net.sxkeji.androiddevartiestpritice.activity.WidgetCircleViewActivity;
-import net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.AnimationSplashActivity;
 import net.sxkeji.androiddevartiestpritice.activity.eventbus.EventBusActivity;
+import net.sxkeji.androiddevartiestpritice.activity.learnInterpolator.AnimationSplashActivity;
 import net.sxkeji.androiddevartiestpritice.activity.sidebarlist.SideBarListActivity;
 import net.sxkeji.androiddevartiestpritice.widget.JWordUtils;
 
@@ -62,6 +63,10 @@ public class StartActivity extends Activity {
     Button btnDrawerSortList;
     @Bind(R.id.btn_animation_splash)
     Button btnAnimationSplash;
+    @Bind(R.id.btn_bottom_navigation)
+    Button btnBottomNavigation;
+    @Bind(R.id.btn_react_native)
+    Button btnReactNative;
 
     private Button btn_ipc;
     private Button btn_listview_load_data;
@@ -206,7 +211,14 @@ public class StartActivity extends Activity {
                 jump2Activity(AnimationSplashActivity.class);
             }
         });
+//        btnBottomNavigation
 
+        btnReactNative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump2Activity(ReactNativeActivity.class);
+            }
+        });
     }
 
     private void jump2Activity(Class<?> aClass) {

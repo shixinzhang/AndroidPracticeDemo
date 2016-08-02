@@ -5,14 +5,15 @@ android {
     buildToolsVersion "23.0.2"
     defaultConfig {
         applicationId "net.sxkeji.androiddevartiestpritice"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
-    }
-
-    lintOptions{
-        abortOnError false
+        versionName "1.1"
+        manifestPlaceholders = [
+                UMENG_CHANNEL_VALUE: "default"
+        ]
+        //使用VectorDrawableCompat
+//        vectorDrawables.useSupportLibrary(true)
     }
 
     signingConfigs {
@@ -35,8 +36,6 @@ android {
 
     buildTypes {
         release {
-            //混淆、清除
-            minifyEnabled false
             //版本后缀
             versionNameSuffix "_release"
             //Zip优化
@@ -45,22 +44,47 @@ android {
             shrinkResources true
             //签名配置文件
             signingConfig signingConfigs.releaseKey
+
+
+            //混淆、清除
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            //关闭 Log 标签
+            buildConfigField "boolean", "LOG_DEBUG", "false"
 
         }
         debug {
-            minifyEnabled false
             versionNameSuffix "_debug"
             zipAlignEnabled false
             shrinkResources false
             signingConfig signingConfigs.debugKey
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    lintOptions {
+        //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
     }
 
     productFlavors {
         huawei {}
         tencent {}
         wandoujia {}
+    }
+
+    productFlavors.all {
+        flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+//            buildConfigField 'String', 'API_SERVER_URL', 'http://www.baidu.com'
     }
 
     //使用渠道名打包apk
@@ -82,17 +106,17 @@ android {
     }
 }
 
+final APPCOMPAT_VERSION = '23.4.0'
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:recyclerview-v7:23.3.0'
+    compile "com.android.support:appcompat-v7:$APPCOMPAT_VERSION"
+    compile "com.android.support:recyclerview-v7:$APPCOMPAT_VERSION"
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'fm.jiecao:jiecaovideoplayer:3.0_preview'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0'
-    compile files('libs/freemarker.jar')
     compile files('libs/jword-1.0.jar')
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile "com.facebook.react:react-native:+"
 }

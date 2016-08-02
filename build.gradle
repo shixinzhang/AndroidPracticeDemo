@@ -15,9 +15,14 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url "$rootDir/node_modules/react-native/android"
+        }
     }
 }
 
 task clean(type: Delete) {
+    //每次构建时删除 build 文件夹
     delete rootProject.buildDir
 }

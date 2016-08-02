@@ -122,6 +122,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_btn"
             android:text="EventBus 学习 " />
+
         <Button
             android:id="@+id/btn_drawer_sort_list"
             android:layout_width="@dimen/start_btn_width"
@@ -129,6 +130,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_btn"
             android:text="侧边栏和抽屉组合" />
+
         <Button
             android:id="@+id/btn_animation_splash"
             android:layout_width="@dimen/start_btn_width"
@@ -136,5 +138,21 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_btn"
             android:text="熟悉加速器 Interpolator" />
+
+        <Button
+            android:id="@+id/btn_bottom_navigation"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="几种底部导航栏的实现方式" />
+
+        <Button
+            android:id="@+id/btn_react_native"
+            android:layout_width="@dimen/start_btn_width"
+            android:layout_height="@dimen/start_btn_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="react-native 学习" />
     </LinearLayout>
 </ScrollView>
